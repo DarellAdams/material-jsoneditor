@@ -1,6 +1,6 @@
 {
   "name": "material-jsoneditor-umd",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Simple JSON Editor component built for use in Material UI projects",
   "main": "dist/material-jsoneditor.umd.js",
   "repository": {
