@@ -1,15 +1,17 @@
 {
-  "name": "material-jsoneditor",
+  "name": "material-jsoneditor-umd",
   "version": "2.0.0",
   "description": "Simple JSON Editor component built for use in Material UI projects",
-  "main": "build/index.js",
+  "main": "dist/material-jsoneditor.umd.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/andrewlowndes/material-jsoneditor.git"
+    "url": "https://github.com/DarellAdams/material-jsoneditor.git"
   },
   "scripts": {
     "start": "webpack serve",
-    "build": "tsc --project tsconfig_prod.json",
+    "build:type": "tsc --project tsconfig_prod.json",
+    "build:js": "rollup -c rollup.config.js",
+    "build": "npm run build:js -s && npm run build:types -s",
     "lint": "eslint --fix {src,test}/**/*.{js,ts,jsx,tsx} --no-error-on-unmatched-pattern",
     "format": "prettier --config .prettierrc --write {src,test}/**/* ./*.{json,*.json} !package-lock.json -u --no-error-on-unmatched-pattern",
     "dist": "webpack --mode production --no-devtool",
@@ -18,6 +20,7 @@
   "author": "Andrew Lowndes",
   "license": "MIT",
   "devDependencies": {
+    "@rollup/plugin-typescript": "^9.0.1",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.13",
     "@typescript-eslint/eslint-plugin": "^5.13.0",
@@ -34,18 +37,20 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
     "prettier": "^2.5.1",
+    "rollup": "^2.79.1",
     "ts-loader": "^9.2.7",
+    "tslib": "^2.4.0",
     "typescript": "^4.6.2",
     "webpack": "^5.70.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
   },
   "peerDependencies": {
-    "csstype": "3.0.10",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.4.4",
     "@mui/material": "^5.4.4",
+    "csstype": "3.0.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
